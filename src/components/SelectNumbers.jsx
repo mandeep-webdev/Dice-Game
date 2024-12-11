@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import styled from "styled-components";
-const SelectNumbers = () => {
-  const [selectedNumber, setSelectedNumber] = useState(null);
+const SelectNumbers = ({ selectedNumber, setSelectedNumber }) => {
+  // const [selectedNumber, setSelectedNumber] = useState(null);
+  // console.log(selectedNumber);
   const arrNumbers = [1, 2, 3, 4, 5, 6];
   return (
     <NumbersContainer>

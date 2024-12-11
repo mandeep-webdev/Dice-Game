@@ -1,14 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
-const RollDice = () => {
-  const [currentDice, setCurrentDice] = useState(1);
 
-  const generateRandomNumber = () => {
-    const randomNumber = Math.floor(Math.random() * 6) + 1;
-    setCurrentDice(randomNumber);
-    console.log(currentDice);
-  };
+const RollDice = ({ currentDice, generateRandomNumber }) => {
+  // const [currentDice, setCurrentDice] = useState(1);
+
   return (
     <DiceContainer>
       <img
