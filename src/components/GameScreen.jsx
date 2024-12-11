@@ -10,6 +10,7 @@ const GameScreen = () => {
   const [showRules, setShowRules] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
 
+  const [message, setMessage] = useState(null);
   const generateRandomNumber = () => {
     if (!selectedNumber) {
       alert("select the number");
@@ -19,20 +20,24 @@ const GameScreen = () => {
     setCurrentDice(randomNumber);
 
     if (selectedNumber !== null && selectedNumber === randomNumber) {
+      setMessage("🎉🎊 Congrats! Numbers are matched! 🎉✨");
       setTotalScore((prev) => prev + randomNumber);
     } else {
+      setMessage("");
       setTotalScore((prev) => (prev > 1 ? prev - 2 : 0));
     }
     setSelectedNumber(null);
   };
   const handleReset = () => {
     setTotalScore(0);
+    setMessage("");
     setSelectedNumber(null);
     setCurrentDice(1);
   };
   return (
     <>
       <MainContainer>
+        <h3>{message}</h3>
         <div className="choose-numbers">
           <TotalScore totalScore={totalScore} />
           <SelectNumbers
@@ -69,6 +74,11 @@ const MainContainer = styled.div`
     display: flex;
     justify-content: space-around;
     padding: 70px;
+  }
+  h3 {
+    text-align: center;
+    margin-top: 20px;
+    color: green;
   }
 `;
 const ButtonsContainer = styled.div`
