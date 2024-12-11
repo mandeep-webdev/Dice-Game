@@ -21,8 +21,9 @@ const GameScreen = () => {
     if (selectedNumber !== null && selectedNumber === randomNumber) {
       setTotalScore((prev) => prev + randomNumber);
     } else {
-      setTotalScore((prev) => (prev > 0 ? prev - 2 : 0));
+      setTotalScore((prev) => (prev > 1 ? prev - 2 : 0));
     }
+    setSelectedNumber(null);
   };
   const handleReset = () => {
     setTotalScore(0);
@@ -46,7 +47,7 @@ const GameScreen = () => {
       </MainContainer>
       <ButtonsContainer>
         <button className="reset" onClick={handleReset}>
-          Reset Score
+          Reset Game
         </button>
         <button onClick={() => setShowRules(!showRules)}>
           {showRules ? "Hide Rules" : "Show Rules"}
